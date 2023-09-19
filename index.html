@@ -7,14 +7,29 @@
     <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
+    <div class="menu">
+        <div class="title">Tetris</div>
+    </div>
+    
     <div class="wrapper">
-        <div class="gameText">
-            <span>Game Over</span>
-            <button>Restart</button>
+        <div class="record">
         </div>
-        <div class="scores">0</div>
-        <div class="board">
-            <ul></ul>
+        <div class="game">
+            <div class="scores">0</div>
+            <div class="board">
+                <ul></ul>
+            </div>
+        </div>
+        <div class="gameStart">
+            <span>Start The Game</span>
+            <button class="startBTN">Start</button>
+        </div>
+        <div class="gameOver">
+            <span>Game Over</span>
+            <span>Do you want to save your socre?</span>
+            <span>Name: <input type="text"></span>
+            <button class="submitBTN">Submit</button>
+            <button class="restartBTN">Restart</button>
         </div>
     </div>
     <script src="JS/tetris.js" type="module"></script>

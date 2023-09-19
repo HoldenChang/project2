@@ -1,9 +1,11 @@
 import Blocks from "./blocks.js";
 
 const board = document.querySelector(".board ul");
-const gameText = document.querySelector(".gameText");
+const gameStart = document.querySelector(".gameStart");
+const gameOver = document.querySelector(".gameOver");
 const scoreDisplay = document.querySelector(".scores");
-const restart = document.querySelector(".gameText button");
+const start = document.querySelector(".startBTN")
+const restart = document.querySelector(".restartBTN");
 
 const board_Row = 20;
 const board_Col = 10;
@@ -146,7 +148,7 @@ const dropBlock = () =>{
 }
 
 const showGameOverText = () =>{
-    gameText.style.display = "flex";
+    gameOver.style.display = "flex";
 }
 
 const increaseDuration = () =>{
@@ -178,14 +180,16 @@ document.addEventListener("keydown", event => {
     }
 });
 
+start.addEventListener("click", () =>{
+    gameStart.style.display = "none";
+    init();
+});
 
 restart.addEventListener("click", () => {
     board.innerHTML = "";
-    gameText.style.display = "none";
+    gameOver.style.display = "none";
     score = 0;
     duration = 500;
     scoreDisplay.innerHTML = score;
     init();
 });
-
-init();
