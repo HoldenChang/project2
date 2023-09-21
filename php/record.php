@@ -1,23 +1,17 @@
 <?php 
 
-$name = $_POST['name'];
-$score = $_POST['score'];
+$name = $_POST['username'];
+$score = $_POST['playerscores'];
 
-$serverIP = "";
-$serverID = "";
-$serverPWD = "";
+$serverIP = "69.172.204.200";
+$serverID = "ncsm1752_ncsm1752";
+$serverPWD = "ncsm1990cdh";
 $dataBaseN = "ncsm1752_tetris";
 
-$connect = mysqli_connect($serverIP, $serverID, $serverIP, $dataBaseN);
-$sql = "INSERT INTO user (name, score) VALUES (?, ?)";
-$stmt = mysqli_stmt_init($connect);
+$connect = mysqli_connect($serverIP, $serverID, $serverPWD, $dataBaseN);
+$sql = "INSERT INTO userDB (playerName, playerScore) VALUES ('$name', $score)";
+mysqli_query($connect, $sql);
 
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-    echo "script>alert('Server Connection Error')</script>";
-} else {
-    mysqli_stmt_bind_param($stmt, "si", $name, $score);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-}
+mysqli_close($connect);
 
 ?>

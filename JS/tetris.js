@@ -152,7 +152,7 @@ const showGameOverText = () =>{
 }
 
 const increaseDuration = () =>{
-    duration -= 40;
+    duration -= 10;
 }
 
 setInterval(increaseDuration, 10000);
